@@ -1,0 +1,165 @@
+#%RAML 1.0 DataType
+integrationMessage: 
+
+person:
+  type: object
+  description: Represents a person with basic identification attributes.
+  properties:
+    objectId: string
+    version: string
+    loginId: string
+    personType: string
+    printName: string
+
+client:
+  type: person
+  description: Inherits from person and adds client-specific attributes.
+  properties:
+    personNumber: string
+
+daysOfWeek:
+  type: object
+  description: Represents a day of the week.
+  properties:
+    dayOfWeek: string
+
+sectionSchedule:
+  type: object
+  description: Defines the schedule for a course section.
+  properties:
+    broadcastChannelType: string
+    daysOfWeek: daysOfWeek
+    endDate: string
+    startDate: string
+    scheduleType: string
+
+tuitionFeeItem:
+  type: object
+  description: Represents an individual tuition fee item.
+  properties:
+    amount: string
+    name: string
+
+tuitionFeeItems:
+  type: object
+  description: A collection of tuition fee items.
+  properties:
+    tuitionFeeItem: tuitionFeeItem
+
+tuitionFee:
+  type: object
+  description: Represents the tuition fee structure.
+  properties:
+    tuitionFeeItems: tuitionFeeItems
+
+tuitionFees:
+  type: object
+  description: A collection of tuition fees.
+  properties:
+    tuitionFee: tuitionFee
+
+tuitionProfile:
+  type: object
+  description: Represents the tuition profile for a course section.
+  properties:
+    tuitionFees: tuitionFees
+
+courseSectionFee:
+  type: object
+  description: Represents the fee associated with a course section.
+  properties:
+    tuitionProfile: tuitionProfile
+
+courseSectionFees:
+  type: object
+  description: A collection of course section fees.
+  properties:
+    courseSectionFee: courseSectionFee
+
+associatedCourse:
+  type: object
+  description: Represents a course associated with a section.
+  properties:
+    objectId: string
+    version: string
+    code: string
+    name: string
+
+enrollCourseSection:
+  type: object
+  description: Represents the enrollment details for a course section.
+  properties:
+    code: string
+    createTime: string
+    creator: person
+    associatedCourse: associatedCourse
+    sectionSchedules:
+      type: object
+      properties:
+        sectionSchedule: sectionSchedule
+    courseSectionFees: courseSectionFees
+
+enrollmentEvent:
+  type: object
+  description: Represents an enrollment event.
+  properties:
+    objectId: string
+    version: string
+    activityCode: string
+    courseSectionId: string
+    creationTime: string
+    enrollCourseSection: enrollCourseSection
+
+enrollmentEvents:
+  type: object
+  description: A collection of enrollment events.
+  properties:
+    enrollmentEvent: enrollmentEvent
+
+transactionBasket:
+  type: object
+  description: Represents a transaction basket containing enrollment events.
+  properties:
+    code: string
+    createTime: string
+    creator: person
+    description: string
+    name: string
+    objectId: string
+    updater: person
+    version: string
+    client: client
+    enrollmentEvents: enrollmentEvents
+
+requestBody:
+  type: object
+  description: Represents the request body for an enrollment transaction.
+  properties:
+    transactionBasket: transactionBasket
+
+integrationMessage:
+  type: object
+  description: Represents an integration message with action and body.
+  properties:
+    action:
+      type: string
+      enum: [NEW, UPDATE, DELETE]
+    body: requestBody
+
+enrollmentRequest:
+  type: object
+  description: Represents an enrollment request.
+  properties:
+    integrationMessage: integrationMessage
+
+enrollmentResponse:
+  type: object
+  description: Represents the response to an enrollment request.
+  properties:
+    status:
+      type: string
+      enum: [SUCCESS, FAILURE]
+    message: string
+    enrollmentId?: string
+    errorCode?: string
+    errorDetails?: string

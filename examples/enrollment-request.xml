@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<integrationMessage>
+  <action>NEW</action>
+  <body>
+    <transactionBasket>
+      <code>Processed</code>
+      <createTime>23 Apr 2025 11:40:30 AM</createTime>
+      <creator>
+        <objectId>2641035</objectId>
+        <version>2</version>
+        <loginId>n01585877</loginId>
+        <personType>Staff</personType>
+        <printName>Nisarg Patel</printName>
+      </creator>
+      <description>Processed</description>
+      <name>Processed</name>
+      <objectId>4690483</objectId>
+      <updater>
+        <objectId>2641035</objectId>
+        <version>2</version>
+        <loginId>n01585877</loginId>
+        <personType>Staff</personType>
+        <printName>Nisarg Patel</printName>
+      </updater>
+      <version>3</version>
+      <client>
+        <objectId>1427256</objectId>
+        <version>145</version>
+        <loginId>X001101</loginId>
+        <personNumber>X001101</personNumber>
+        <personType>Student</personType>
+        <printName>cameraTest One</printName>
+      </client>
+      <enrollmentEvents>
+        <enrollmentEvent>
+          <objectId>4690495</objectId>
+          <version>3</version>
+          <activityCode>Sale</activityCode>
+          <courseSectionId>4649784</courseSectionId>
+          <creationTime>23 Apr 2025 11:40:30 AM</creationTime>
+          <enrollCourseSection>
+            <code>2194</code>
+            <createTime>14 Apr 2025 07:22:51 PM</createTime>
+            <creator>
+              <objectId>2641035</objectId>
+              <version>2</version>
+              <loginId>n01585877</loginId>
+              <personType>Staff</personType>
+              <printName>Nisarg Patel</printName>
+            </creator>
+            <associatedCourse>
+              <objectId>16901</objectId>
+              <version>10</version>
+              <code>PREC-1000A</code>
+              <name>Course 1: Real Estate Essentials</name>
+            </associatedCourse>
+            <sectionSchedules>
+              <sectionSchedule>
+                <broadcastChannelType>Live</broadcastChannelType>
+                <daysOfWeek>
+                  <dayOfWeek>1</dayOfWeek>
+                </daysOfWeek>
+                <endDate>30 Sep 2025 12:00:00 AM</endDate>
+                <startDate>31 Jul 2025 12:00:00 AM</startDate>
+                <scheduleType>eLearning</scheduleType>
+              </sectionSchedule>
+            </sectionSchedules>
+            <courseSectionFees>
+              <courseSectionFee>
+                <tuitionProfile>
+                  <tuitionFees>
+                    <tuitionFee>
+                      <tuitionFeeItems>
+                        <tuitionFeeItem>
+                          <amount>600.00</amount>
+                          <name>Course Fee</name>
+                        </tuitionFeeItem>
+                      </tuitionFeeItems>
+                    </tuitionFee>
+                  </tuitionFees>
+                </tuitionProfile>
+              </courseSectionFee>
+            </courseSectionFees>
+          </enrollCourseSection>
+        </enrollmentEvent>
+      </enrollmentEvents>
+    </transactionBasket>
+  </body>
+</integrationMessage>

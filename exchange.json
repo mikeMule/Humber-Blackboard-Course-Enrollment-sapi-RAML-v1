@@ -1,0 +1,10 @@
+{
+  "main": "humber-blackboard-course-enrollment-sapi-xml.raml",
+  "name": "Humber-Blackboard-Course-Enrollment-sapi-xml",
+  "groupId": "93028319-0fab-4b26-ad17-dc393e48f80c",
+  "assetId": "humber-blackboard-course-enrollment-sapi-xml",
+  "version": "1.0.0",
+  "classifier": "raml",
+  "tags": [],
+  "descriptorVersion": "1.0.0"
+}

@@ -1,0 +1,157 @@
+#%RAML 1.0
+title: Humber Blackboard Course Enrollment API
+version: v1
+baseUri: https://api.humber.ca/learn/api/public/v1
+mediaType:
+  - application/json
+  - application/xml
+description: |
+  API for Learner Course Section Enrollment integration between DestinyOne and BlackBoard.
+  This API supports real-time operations when a student is enrolled, transferred, or dropped from a course section in DestinyOne (via Webhook to API).
+
+types:
+  enrollmentTypes: !include datatypes/humber-blackboard-data-types.raml
+
+/courses/{courseId}/users/{userId}:
+  uriParameters:
+    courseId:
+      type: string
+      description: The Blackboard course ID (LMS Section ID from D1)
+    userId:
+      type: string
+      description: The Blackboard user ID (userName from LMS User ID in D1)
+
+  put:
+    description: |
+      Enroll a student in a course section in Blackboard.
+      Business Trigger: Student enrollment in DestinyOne.
+    body:
+      application/json:
+        type: enrollmentTypes
+        example: !include examples/enrollment-request.json
+      application/xml:
+        example: !include examples/enrollment-request.xml
+    responses:
+      201:
+        body:
+          application/json:
+            example: |
+              {
+                "status": "SUCCESS",
+                "message": "Student enrolled successfully",
+                "enrollmentId": "4690495"
+              }
+          application/xml:
+            example: |
+              <?xml version="1.0" encoding="UTF-8"?>
+              <response>
+                <status>SUCCESS</status>
+                <message>Student enrolled successfully</message>
+                <enrollmentId>4690495</enrollmentId>
+              </response>
+      400:
+        body:
+          application/json:
+            example: |
+              {
+                "status": "FAILURE",
+                "message": "Invalid request format",
+                "errorCode": "ERR-400",
+                "errorDetails": "Required fields missing in request"
+              }
+      404:
+        body:
+          application/json:
+            example: |
+              {
+                "status": "FAILURE",
+                "message": "Course or user not found",
+                "errorCode": "ERR-404",
+                "errorDetails": "The specified course or user does not exist"
+              }
+      500:
+        body:
+          application/json:
+            example: |
+              {
+                "status": "FAILURE",
+                "message": "Internal server error",
+                "errorCode": "ERR-500",
+                "errorDetails": "Error processing enrollment in Blackboard system"
+              }
+
+  patch:
+    description: |
+      Update a student's enrollment in a course section in Blackboard.
+      Business Trigger: Student transfer in DestinyOne.
+    body:
+      application/json:
+        type: enrollmentTypes
+        example: !include examples/enrollment-request.json
+      application/xml:
+        example: !include examples/enrollment-request.xml
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "status": "SUCCESS",
+                "message": "Student enrollment updated successfully",
+                "enrollmentId": "4690495"
+              }
+      404:
+        body:
+          application/json:
+            example: |
+              {
+                "status": "FAILURE",
+                "message": "Course or user not found",
+                "errorCode": "ERR-404",
+                "errorDetails": "The specified course or user does not exist"
+              }
+      500:
+        body:
+          application/json:
+            example: |
+              {
+                "status": "FAILURE",
+                "message": "Internal server error",
+                "errorCode": "ERR-500",
+                "errorDetails": "Error processing enrollment update in Blackboard system"
+              }
+
+  delete:
+    description: |
+      Drop a student from a course section in Blackboard.
+      Business Trigger: Student dropped from course in DestinyOne.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "status": "SUCCESS",
+                "message": "Student dropped from course successfully",
+                "enrollmentId": "4690495"
+              }
+      404:
+        body:
+          application/json:
+            example: |
+              {
+                "status": "FAILURE",
+                "message": "Course or user not found",
+                "errorCode": "ERR-404",
+                "errorDetails": "The specified course or user does not exist"
+              }
+      500:
+        body:
+          application/json:
+            example: |
+              {
+                "status": "FAILURE",
+                "message": "Internal server error",
+                "errorCode": "ERR-500",
+                "errorDetails": "Error processing enrollment deletion in Blackboard system"
+              }

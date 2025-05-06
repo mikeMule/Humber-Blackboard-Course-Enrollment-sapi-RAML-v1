@@ -1,0 +1,90 @@
+{
+  "integrationMessage": {
+    "action": "NEW",
+    "body": {
+      "transactionBasket": {
+        "code": "Processed",
+        "createTime": "23 Apr 2025 11:40:30 AM",
+        "creator": {
+          "objectId": "2641035",
+          "version": "2",
+          "loginId": "n01585877",
+          "personType": "Staff",
+          "printName": "Nisarg Patel"
+        },
+        "description": "Processed",
+        "name": "Processed",
+        "objectId": "4690483",
+        "updater": {
+          "objectId": "2641035",
+          "version": "2",
+          "loginId": "n01585877",
+          "personType": "Staff",
+          "printName": "Nisarg Patel"
+        },
+        "version": "3",
+        "client": {
+          "personNumber": "X001101",
+          "objectId": "1427256",
+          "version": "145",
+          "loginId": "X001101",
+          "personType": "Student",
+          "printName": "cameraTest One"
+        },
+        "enrollmentEvents": {
+          "enrollmentEvent": {
+            "objectId": "4690495",
+            "version": "3",
+            "activityCode": "Sale",
+            "courseSectionId": "4649784",
+            "creationTime": "23 Apr 2025 11:40:30 AM",
+            "enrollCourseSection": {
+              "code": "2194",
+              "createTime": "14 Apr 2025 07:22:51 PM",
+              "creator": {
+                "objectId": "2641035",
+                "version": "2",
+                "loginId": "n01585877",
+                "personType": "Staff",
+                "printName": "Nisarg Patel"
+              },
+              "associatedCourse": {
+                "objectId": "16901",
+                "version": "10",
+                "code": "PREC-1000A",
+                "name": "Course 1: Real Estate Essentials"
+              },
+              "sectionSchedules": {
+                "sectionSchedule": {
+                  "broadcastChannelType": "Live",
+                  "daysOfWeek": {
+                    "dayOfWeek": "1"
+                  },
+                  "endDate": "30 Sep 2025 12:00:00 AM",
+                  "startDate": "31 Jul 2025 12:00:00 AM",
+                  "scheduleType": "eLearning"
+                }
+              },
+              "courseSectionFees": {
+                "courseSectionFee": {
+                  "tuitionProfile": {
+                    "tuitionFees": {
+                      "tuitionFee": {
+                        "tuitionFeeItems": {
+                          "tuitionFeeItem": {
+                            "amount": "600.00",
+                            "name": "Course Fee"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
